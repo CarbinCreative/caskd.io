@@ -1,0 +1,27 @@
+- render_title
+- render_schema
+- render_classes
+!!!
+= html_root
+%head
+  %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+  %meta{ content: "text/javascript", "http-equiv" => "Content-Script-Type" }/
+  %meta{ content: "text/css", "http-equiv" => "Content-Style-Type" }/
+  %meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
+  %meta{ content: "default", name: "apple-mobile-web-app-status-bar-style" }/
+  %meta{ content: "width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no", name: "viewport" }/
+  %meta{ content: "telephone=no", name: "format-detection" }/
+  - if protect_against_forgery?
+    %meta#authenticity-token{ content: form_authenticity_token, name: "authenticity-token" }/
+  = yield :meta
+  = yield :head
+  %title= yield :title
+  = component_stylesheet
+%body#top{ class: "no-javascript env-#{Rails.env} #{yield :classes}".squish, itemscope: "", itemtype: "#{yield :schema}" }
+  = render partial: "/shared/flash"
+  #wrapper
+    = render "layouts/#{component_layout}"
+  = component_javascript "shared"
+  = component_javascript
+  = render partial: "/shared/tracking"
+  = render partial: "/shared/typekit"

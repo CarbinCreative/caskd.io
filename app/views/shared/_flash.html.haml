@@ -1,0 +1,4 @@
+- flash.each do |type, message|
+	%div{ class: component_class_names('flash', nil, type) }
+		%p{ class: component_class_names('flash', 'message', type, omit_root: true) }
+			= message
