@@ -18,8 +18,11 @@ module Caskd
     config.autoload_paths += %W(#{config.root}/lib/)
     config.autoload_paths += %W(#{config.root}/lib/validators/)
 
-    config.generators.stylesheets = false
-    config.generators.javascripts = false
+    config.generators do |generator|
+      generator.template_engine false
+      generator.assets false
+      generator.helper false
+    end
 
     config.assets.enabled = false
     config.serve_static_files = true
