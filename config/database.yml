@@ -17,8 +17,8 @@ production:
   username: <%= ENV["DB_USERNAME_PRODUCTION"] %>
   password: <%= ENV["DB_PASSWORD_PRODUCTION"] %>
 
-test:
+production:
   <<: *default
-  database: jobriot_test
-  username: root
-  password: root
+  database: <%= ENV["DB_NAME_TEST"] %>
+  username: <%= ENV["DB_USERNAME_TEST"] %>
+  password: <%= ENV["DB_PASSWORD_TEST"] %>
