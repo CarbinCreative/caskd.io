@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: <%= ENV["DB_NAME_DEVELOPMENT"] %>
+  username: <%= ENV["DB_USERNAME_DEVELOPMENT"] %>
+  password: <%= ENV["DB_PASSWORD_DEVELOPMENT"] %>
+
+production:
+  <<: *default
+  database: <%= ENV["DB_NAME_PRODUCTION"] %>
+  username: <%= ENV["DB_USERNAME_PRODUCTION"] %>
+  password: <%= ENV["DB_PASSWORD_PRODUCTION"] %>
+
+test:
+  <<: *default
+  database: jobriot_test
+  username: root
+  password: root
