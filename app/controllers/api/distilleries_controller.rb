@@ -28,7 +28,7 @@ class Api::DistilleriesController < Api::ApplicationController
   end
 
   def set_distillery
-    @distillery = Distillery.published.friendly.find(params[:id])
+    @distillery = Distillery.published.where('id = :id OR token = :id OR slug = :id', id: params[:id])
   end
 
   def distillery_params
