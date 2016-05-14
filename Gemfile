@@ -22,10 +22,9 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'persistent_record', '~> 0.1.4'
 
 # Rendering
-gem 'rabl', '~> 0.12.0'
 gem 'haml', '~> 4.0.7'
 gem 'haml-rails', '~> 0.9.0'
-gem 'rabl-rails', '~> 0.4.2'
+gem 'active_model_serializers', '~> 0.9.5'
 
 # Development & Test
 group :development, :test do
@@ -40,6 +39,7 @@ end
 
 # Test
 group :test do
+  gem 'assert_json', '~> 0.4.1'
   gem 'minitest-rails', '~> 2.2.0'
   gem 'minitest-rails-capybara', '~> 2.1.1'
   gem 'minitest-reporters', '~> 1.1.8'

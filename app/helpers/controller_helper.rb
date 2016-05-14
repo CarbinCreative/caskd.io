@@ -9,7 +9,7 @@ module ControllerHelper
 		'error'
 	]
 
-	def resolve *args
+  def resolve *args
 		options = args.extract_options!
 		location = args.first
 		response = ActiveSupport::HashWithIndifferentAccess.new(
@@ -34,7 +34,7 @@ module ControllerHelper
 			render options[:render]
 			return
 		end
-		respond_with response[:location], response unless request.xhr?
+		respond_with response
 	end
 
 end
